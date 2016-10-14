@@ -8,6 +8,7 @@
 		<td>Minat</td>
 		<td>Dosen Pembimbing 1</td>
 		<td>Dosen Pembimbing 2</td>
+		<td>Periode</td>
 	</tr>
 	<?php foreach($mahasiswas_data as $key=>$mahasiswa_data){     ?>
 	<tr>
@@ -18,6 +19,7 @@
 		<td><?php echo  $mahasiswa_data['minat']['topik']; ?></td>
 		<td><?php echo  $mahasiswa_data['pembimbing'][0]['nama']; ?></td>
 		<td><?php echo  $mahasiswa_data['pembimbing'][1]['nama']; ?></td>
+		<td><?php echo  date('M Y',strtotime($mahasiswa_data['periode'])); ?></td>
 
 	</tr>
 	<?php } ?>

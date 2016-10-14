@@ -66,7 +66,8 @@ class admin extends CI_Controller {
 		->setCellValue('D1', 'Judul Thesis')
 		->setCellValue('E1', 'Minat')
 		->setCellValue('F1', 'Dosen Pembimbing 1')
-		->setCellValue('G1', 'Dosen Pembimbing 2');
+		->setCellValue('G1', 'Dosen Pembimbing 2')
+		->setCellValue('H1', 'Periode');
             //set title pada sheet (me rename nama sheet)
 		$objPHPExcel->getActiveSheet()->setTitle('Data Mahasiswa');
 
@@ -83,6 +84,8 @@ class admin extends CI_Controller {
 			$objPHPExcel->getActiveSheet()->setCellValue('E'.$row,$mahasiswa_data['minat']['topik']);
 			$objPHPExcel->getActiveSheet()->setCellValue('F'.$row,$mahasiswa_data['pembimbing'][0]['nama']);
 			$objPHPExcel->getActiveSheet()->setCellValue('G'.$row,$mahasiswa_data['pembimbing'][1]['nama']);
+			$objPHPExcel->getActiveSheet()->setCellValue('H'.$row,date('M Y',strtotime($mahasiswa_data['periode'])));
+			
 		}
 
             //mulai menyimpan excel format xlsx, kalau ingin xls ganti Excel2007 menjadi Excel5          

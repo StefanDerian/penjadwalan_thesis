@@ -38,6 +38,7 @@ class mahasiswa_model extends CI_Model{
 		
 		foreach ($mahasiswas_result as $key => $mahasiswa_result) {
 				# code...
+			$periode = $this->check_periode($mahasiswa_result['id']);
 			$dosens_data = $this->get_pembimbing($mahasiswa_result['id']);
 
 			foreach ($dosens_data as $key1 => $dosen_data) {
@@ -49,7 +50,9 @@ class mahasiswa_model extends CI_Model{
 
 			$mahasiswa_result['pembimbing'] = $dosens_data;
 			$mahasiswa_result['minat'] = $this->penelitian_model->get_penelitian($mahasiswa_result['id_minat']);
+			$mahasiswa_result['periode'] = $periode['periode'];
 			$mahasiswas_result[$key] = $mahasiswa_result;
+			
 
 		}
 		return $mahasiswas_result;
@@ -92,6 +95,8 @@ class mahasiswa_model extends CI_Model{
 
 		return $this->db->get()->first_row('array');
 	}
+
+
 	public function insert_periode($data){
 		$this->db->insert(MAHASISWA_PERIODE_TABLE,$data);
 	}

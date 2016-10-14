@@ -70,7 +70,7 @@ echo isset($validation)?$validation:"";
 					?>
 				</select>
 			</div>
-			<button type="submit" class="btn btn-default"><?php echo $status != "signup"?"Daftar":"Ubah";?></button>
+			<button type="submit" class="btn btn-default"><?php echo $status == "Signup"?"Daftar":"Ubah";?></button>
 		</form>
 
 	</div>
